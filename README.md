@@ -22,27 +22,32 @@ Module that exposes drupal entities to RESTful APIs.
 
 # Considerations before using the <b>API</b>
 
-1. By default the <b>checksum</b> for the APIs are md5 hash of the allowed domain name.
+1. By default the <b>checksum</b> header for the APIs are md5 hash of the allowed domain name.
 
-    For example : you placed the entry <b>'api/v1/*|example.com|GET,OPTIONS|Content-Type,Checksum|True'</b> in the Domains field<br>
-    Your hash will be : <i>1a79a4d60de6718e8e5b326e338ae533</i> i.e. a md5 has of the domain name 'example'.
+    For example : you placed the entry <b>'api/v1/*|example.com|GET,OPTIONS|Content-Type,Checksum|True'</b> in the Domains field.<br>
+    Your hash will be : <i>1a79a4d60de6718e8e5b326e338ae533</i> i.e. a md5 hass of the domain name 'example'.
 
 # <b>API</b> usage
 
 1. <b>Access APIs</b> using <br>
 
     GET <i>http://{drupal_instance}/api/v1/content/{bundle_name}</i> <br>
-    PARAMETERS
-        headers key : 'checksum' = {md5 hash of allowed domains}
+    HEADERS 'checksum' = {your_checksum}
 
     By default drupal ships with : article and page so the APIs would be <br>
 
     GET <i>http://{drupal_instance}/api/v1/content/article</i> <br>
+    HEADERS 'checksum' = {your_checksum}<br>
+
     GET <i>http://{drupal_instance}/api/v1/content/article/{id}</i> <br>
+    HEADERS 'checksum' = {your_checksum}<br>
 
 2. Offset and limit can be used as <br>
 
     GET <i>http://{drupal_instance}/api/v1/content/article?page={page number}&&limit={numeric value}</i> <br>
+    HEADERS 'checksum' = {your_checksum}<br>
+
+    <b><i>NOTE: To remove any further confusions on checksum refer Consideration before using the <b>API</b> section</i></b>
 
 # Additional information for <b>CORS</b> module
 
