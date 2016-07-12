@@ -1,9 +1,8 @@
-# Webservice Module
+# Webservice Module 0.1.0
 
 Module that exposes drupal entities to RESTful APIs.
-packages = Webservice
-core = 7.x
-version = 0.1.0
+
+# Supports Drupal 7.x
 
 # Dependencies
 
