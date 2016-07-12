@@ -35,13 +35,6 @@ function webservice_menu()
         'access callback' => TRUE,
         'file' => 'webservice.content.inc',
     );
-//    $items['api/'.API_VERSION.'/settings'] = array(
-//        'title' => 'Settings API service',
-//        'description' => 'API service for settings.',
-//        'page callback' => 'settings_api',
-//        'access callback' => TRUE,
-//        'file' => 'webservice.settings.inc',
-//    );
     return $items;
 }
 
