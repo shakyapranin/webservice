@@ -1,0 +1,60 @@
+<?php
+
+module_load_include('inc', 'webservice', 'webservice.constants');
+
+/**
+ * @param $path
+ * @param $arg
+ * @return string
+ */
+function webservice_help($path, $arg) {
+    switch ($path) {
+        // Main module help for the block module
+        case 'admin/help#'.WEBSERVICE_MODULE_NAME:
+            return '<p>' . t('This module is for providing the webservice API functionality') . '</p>';
+    }
+}
+
+/**
+ *
+ */
+function webservice_init(){
+}
+
+/**
+ * Implements hook_menu().
+ */
+function webservice_menu()
+{
+    $items = array();
+    $items['api/'.API_VERSION.'/content/%'] = array(
+        'title' => 'CONTENT API service',
+        'description' => 'API service for contents.',
+        'page callback' => 'content_api',
+        'page arguments' => array(3),
+        'access callback' => TRUE,
+        'file' => 'webservice.content.inc',
+    );
+//    $items['api/'.API_VERSION.'/settings'] = array(
+//        'title' => 'Settings API service',
+//        'description' => 'API service for settings.',
+//        'page callback' => 'settings_api',
+//        'access callback' => TRUE,
+//        'file' => 'webservice.settings.inc',
+//    );
+    return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function webservice_permission() {
+    $permissions = array();
+
+    $permissions[PERM_WEBSERVICE_ALLOW] = array(
+        'title' => t('Allow webservice api'),
+        'description' => t('Checking this permission will allow api webservice to work'),
+    );
+    return $permissions;
+}

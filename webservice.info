@@ -1,0 +1,13 @@
+name = Webservice Module
+description = Module that exposes drupal entities to RESTful APIs.
+packages = Webservice
+core = 7.x
+version = 0.1.0
+
+files[] = webservice.module
+files[] = webservice.constants.inc
+files[] = webservice.controller.inc
+
+dependencies[]  = cors
+
+author = Pranin Shakya
